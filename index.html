@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/index.css'>
+    <title>EspectáculosVIP - Eventos y Shows</title>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Espectáculos<span>VIP</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('Assets/img/first.jpg')">
+        <h1>Descubre los Mejores Espectáculos</h1>
+        <p>Encuentra eventos increíbles cerca de ti: música, teatro, danza, comedia y mucho más.</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar eventos por nombre, artista o lugar...">
+            <button>Buscar</button>
+        </div>
+        <a href="#" class="btn">Explorar Eventos</a>
+    </section>
+
+    <!-- Eventos Destacados -->
+    <section class="featured-events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eventos Destacados</h2>
+                <p>Descubre los espectáculos más populares que no te puedes perder</p>
+            </div>
+            <div class="events-grid">
+                <!-- Evento 1 -->
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('/api/placeholder/300/200');">
+                        <div class="event-date">25 Abril</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Festival de Música Urbana</h3>
+                        <p>La mejor selección de artistas urbanos en un solo escenario.</p>
+                        <div class="event-meta">
+                            <span>Parque Central</span>
+                            <span>20:00 hrs</span>
+                        </div>
+                        <a href="#" class="btn">Comprar Boletos</a>
+                    </div>
+                </div>
+                <!-- Evento 2 -->
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('/api/placeholder/300/200');">
+                        <div class="event-date">30 Abril</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Teatro: "La Casa de Bernarda Alba"</h3>
+                        <p>Una obra maestra del teatro español dirigida por María López.</p>
+                        <div class="event-meta">
+                            <span>Teatro Nacional</span>
+                            <span>19:30 hrs</span>
+                        </div>
+                        <a href="#" class="btn">Comprar Boletos</a>
+                    </div>
+                </div>
+                <!-- Evento 3 -->
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('/api/placeholder/300/200');">
+                        <div class="event-date">5 Mayo</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Concierto Sinfónico</h3>
+                        <p>La orquesta filarmónica presenta las mejores obras clásicas.</p>
+                        <div class="event-meta">
+                            <span>Auditorio Municipal</span>
+                            <span>18:00 hrs</span>
+                        </div>
+                        <a href="#" class="btn">Comprar Boletos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explora por Categorías</h2>
+                <p>Encuentra el tipo de espectáculo que más te gusta</p>
+            </div>
+            <div class="categories-grid">
+                <!-- Categoría 1 -->
+                <div class="category-card">
+                    <div class="category-icon">🎵</div>
+                    <h3>Música</h3>
+                    <p>Conciertos y festivales</p>
+                </div>
+                <!-- Categoría 2 -->
+                <div class="category-card">
+                    <div class="category-icon">🎭</div>
+                    <h3>Teatro</h3>
+                    <p>Obras y musicales</p>
+                </div>
+                <!-- Categoría 3 -->
+                <div class="category-card">
+                    <div class="category-icon">🎬</div>
+                    <h3>Cine</h3>
+                    <p>Estrenos y festivales</p>
+                </div>
+                <!-- Categoría 4 -->
+                <div class="category-card">
+                    <div class="category-icon">💃</div>
+                    <h3>Danza</h3>
+                    <p>Ballet y contemporánea</p>
+                </div>
+                <!-- Categoría 5 -->
+                <div class="category-card">
+                    <div class="category-icon">🎪</div>
+                    <h3>Circo</h3>
+                    <p>Shows y acrobacias</p>
+                </div>
+                <!-- Categoría 6 -->
+                <div class="category-card">
+                    <div class="category-icon">😂</div>
+                    <h3>Comedia</h3>
+                    <p>Stand-up y shows</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Próximos Eventos -->
+    <section class="upcoming-events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Próximos Eventos</h2>
+                <p>No te pierdas los espectáculos que están por venir</p>
+            </div>
+            <div class="event-list">
+                <!-- Evento Lista 1 -->
+                <div class="event-list-item">
+                    <div class="event-list-image" style="background-image: url('/api/placeholder/200/200');"></div>
+                    <div class="event-list-content">
+                        <div>
+                            <h3>Concierto de Rock Alternativo</h3>
+                            <div class="event-list-meta">
+                                <span>10 Mayo, 2025</span>
+                                <span>Estadio Metropolitano</span>
+                                <span>21:00 hrs</span>
+                            </div>
+                            <p>Las mejores bandas de rock alternativo se reúnen para una noche inolvidable.</p>
+                        </div>
+                        <div class="event-list-actions">
+                            <div class="event-price">Desde $45</div>
+                            <a href="#" class="btn">Comprar Boletos</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Evento Lista 2 -->
+                <div class="event-list-item">
+                    <div class="event-list-image" style="background-image: url('/api/placeholder/200/200');"></div>
+                    <div class="event-list-content">
+                        <div>
+                            <h3>Festival de Jazz</h3>
+                            <div class="event-list-meta">
+                                <span>15-17 Mayo, 2025</span>
+                                <span>Parque de la Ciudad</span>
+                                <span>16:00 hrs</span>
+                            </div>
+                            <p>Tres días de los mejores artistas de jazz nacionales e internacionales.</p>
+                        </div>
+                        <div class="event-list-actions">
+                            <div class="event-price">Desde $60</div>
+                            <a href="#" class="btn">Comprar Boletos</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Evento Lista 3 -->
+                <div class="event-list-item">
+                    <div class="event-list-image" style="background-image: url('/api/placeholder/200/200');"></div>
+                    <div class="event-list-content">
+                        <div>
+                            <h3>Ballet Clásico: "El Lago de los Cisnes"</h3>
+                            <div class="event-list-meta">
+                                <span>22 Mayo, 2025</span>
+                                <span>Teatro de la Ópera</span>
+                                <span>19:00 hrs</span>
+                            </div>
+                            <p>El ballet clásico por excelencia interpretado por el Ballet Nacional.</p>
+                        </div>
+                        <div class="event-list-actions">
+                            <div class="event-price">Desde $75</div>
+                            <a href="#" class="btn">Comprar Boletos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo Que Dicen Nuestros Clientes</h2>
+                <p>Experiencias de personas que han asistido a eventos organizados por nosotros</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Increíble organización. Los boletos llegaron a tiempo y el evento fue espectacular. Definitivamente volveré a comprar con ustedes."</p>
+                    </div>
+                    <div class="testimonial-user">
+                        <img src="/api/placeholder/50/50" alt="Usuario">
+                        <div class="user-info">
+                            <h4>María Rodríguez</h4>
+                            <span>Festival de Música Urbana</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"La mejor plataforma para encontrar eventos culturales. Gracias a ustedes pude asistir a una obra de teatro que ni siquiera sabía que estaba en cartelera."</p>
+                    </div>
+                    <div class="testimonial-user">
+                        <img src="/api/placeholder/50/50" alt="Usuario">
+                        <div class="user-info">
+                            <h4>Carlos Sánchez</h4>
+                            <span>Teatro: "La Casa de Bernarda Alba"</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"El proceso de compra fue muy sencillo y la atención al cliente excepcional. Tuve un problema con mis boletos y lo resolvieron en minutos."</p>
+                    </div>
+                    <div class="testimonial-user">
+                        <img src="/api/placeholder/50/50" alt="Usuario">
+                        <div class="user-info">
+                            <h4>Laura Gómez</h4>
+                            <span>Concierto Sinfónico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Organizas Eventos?</h2>
+            <p>Aumenta la visibilidad de tus espectáculos y vende más boletos a través de nuestra plataforma líder en el mercado.</p>
+            <a href="#" class="btn">Registra tu Evento</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <!-- Columna 1 -->
+                <div class="footer-column">
+                    <h3>EspectáculosVIP</h3>
+                    <p>La mejor plataforma para descubrir y disfrutar de los mejores eventos y espectáculos.</p>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>YT</span></a>
+                    </div>
+                </div>
+                <!-- Columna 2 -->
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <!-- Columna 3 -->
+                <div class="footer-column">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Música</a></li>
+                        <li><a href="#">Teatro</a></li>
+                        <li><a href="#">Cine</a></li>
+                        <li><a href="#">Danza</a></li>
+                        <li><a href="#">Comedia</a></li>
+                    </ul>
+                </div>
+                <!-- Columna 4 -->
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>info@espectaculosvip.com</li>
+                        <li>+123 456 7890</li>
+                        <li>Av. Principal 123, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 EspectáculosVIP. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
