@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='../css/asientos.css'>
+  <title>EspectáculosVIP - Selección de Asientos</title>
+</head>
+<body>
+<!-- Encabezado -->
+<header>
+  <div class="container header-container">
+    <a href="../index.html" class="logo">Espectáculos<span>VIP</span></a>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../index.html">Eventos</a></li>
+        <li><a href="../index.html">Categorías</a></li>
+        <li><a href="../index.html">Sobre Nosotros</a></li>
+        <li><a href="../index.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="user-menu">
+      <a href="carrito.html" class="cart-icon">
+        🛒 <span class="cart-count">2</span>
+      </a>
+      <div class="user-dropdown">
+
+          <a href="../index.html">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+</header>
+
+<!-- Información del Evento -->
+<section class="event-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/300');">
+  <div class="container">
+    <div class="event-info">
+      <div class="event-basic">
+        <h1>Teatro: "La Casa de Bernarda Alba"</h1>
+        <div class="event-meta">
+          <div class="meta-item">
+            <span class="meta-icon">📅</span>
+            <span>30 Mayo, 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">⏰</span>
+            <span>19:30 hrs</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">📍</span>
+            <span>Teatro Nacional</span>
+          </div>
+        </div>
+      </div>
+      <div class="ticket-status">
+        <div class="timer">
+          <span class="timer-icon">⏱️</span>
+          <div class="timer-info">
+            <span class="timer-label">Tiempo restante para completar su compra</span>
+            <span class="timer-count" id="countdown">10:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proceso de Compra -->
+<section class="purchase-process">
+  <div class="container">
+    <div class="process-steps">
+      <div class="step completed">
+        <div class="step-number">1</div>
+        <div class="step-label">Selección de Boletos</div>
+      </div>
+      <div class="step-connector completed"></div>
+      <div class="step active">
+        <div class="step-number">2</div>
+        <div class="step-label">Selección de Asientos</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-label">Información y Pago</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-label">Confirmación</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Selección de Asientos -->
+<section class="seating-section">
+  <div class="container">
+    <div class="seating-container">
+      <!-- Panel de selección de asientos -->
+      <div class="seating-chart-container">
+        <div class="seating-instructions">
+          <h2>Selecciona tus asientos</h2>
+          <p>Haz clic en los asientos que deseas reservar. Puedes seleccionar hasta <span id="maxSeats">4</span> asientos.</p>
+        </div>
+
+        <div class="seating-legend">
+          <div class="legend-item">
+            <div class="seat-example available"></div>
+            <span>Disponible</span>
+          </div>
+          <div class="legend-item">
+            <div class="seat-example selected"></div>
+            <span>Seleccionado</span>
+          </div>
+          <div class="legend-item">
+            <div class="seat-example reserved"></div>
+            <span>Reservado</span>
+          </div>
+          <div class="legend-item">
+            <div class="seat-example vip"></div>
+            <span>VIP</span>
+          </div>
+        </div>
+
+        <div class="seat-types-toggle">
+          <button class="type-btn active" data-type="all">Todos</button>
+          <button class="type-btn" data-type="general">General</button>
+          <button class="type-btn" data-type="vip">VIP</button>
+          <button class="type-btn" data-type="premium">Premium</button>
+        </div>
+
+        <div class="stage-container">
+          <div class="stage">ESCENARIO</div>
+        </div>
+
+        <div class="seating-chart">
+          <!-- Sección VIP (Primeras filas) -->
+          <div class="seat-zone vip-zone">
+            <div class="zone-label">VIP</div>
+            <div class="seat-row">
+              <div class="row-label">A</div>
+              <div class="seats">
+                <div class="seat vip" data-seat="A1" data-price="75">A1</div>
+                <div class="seat vip" data-seat="A2" data-price="75">A2</div>
+                <div class="seat vip" data-seat="A3" data-price="75">A3</div>
+                <div class="seat vip" data-seat="A4" data-price="75">A4</div>
+                <div class="seat vip" data-seat="A5" data-price="75">A5</div>
+                <div class="seat vip" data-seat="A6" data-price="75">A6</div>
+                <div class="seat vip reserved" data-seat="A7" data-price="75">A7</div>
+                <div class="seat vip reserved" data-seat="A8" data-price="75">A8</div>
+                <div class="seat vip" data-seat="A9" data-price="75">A9</div>
+                <div class="seat vip" data-seat="A10" data-price="75">A10</div>
+                <div class="seat vip" data-seat="A11" data-price="75">A11</div>
+                <div class="seat vip" data-seat="A12" data-price="75">A12</div>
+              </div>
+              <div class="row-label">A</div>
+            </div>
+            <div class="seat-row">
+              <div class="row-label">B</div>
+              <div class="seats">
+                <div class="seat vip" data-seat="B1" data-price="75">B1</div>
+                <div class="seat vip" data-seat="B2" data-price="75">B2</div>
+                <div class="seat vip" data-seat="B3" data-price="75">B3</div>
+                <div class="seat vip reserved" data-seat="B4" data-price="75">B4</div>
+                <div class="seat vip reserved" data-seat="B5" data-price="75">B5</div>
+                <div class="seat vip" data-seat="B6" data-price="75">B6</div>
+                <div class="seat vip" data-seat="B7" data-price="75">B7</div>
+                <div class="seat vip" data-seat="B8" data-price="75">B8</div>
+                <div class="seat vip" data-seat="B9" data-price="75">B9</div>
+                <div class="seat vip" data-seat="B10" data-price="75">B10</div>
+                <div class="seat vip" data-seat="B11" data-price="75">B11</div>
+                <div class="seat vip" data-seat="B12" data-price="75">B12</div>
+              </div>
+              <div class="row-label">B</div>
+            </div>
+          </div>
+
+          <!-- Sección Premium (Filas intermedias) -->
+          <div class="seat-zone premium-zone">
+            <div class="zone-label">PREMIUM</div>
+            <div class="seat-row">
+              <div class="row-label">C</div>
+              <div class="seats">
+                <div class="seat premium" data-seat="C1" data-price="50">C1</div>
+                <div class="seat premium" data-seat="C2" data-price="50">C2</div>
+                <div class="seat premium" data-seat="C3" data-price="50">C3</div>
+                <div class="seat premium" data-seat="C4" data-price="50">C4</div>
+                <div class="seat premium" data-seat="C5" data-price="50">C5</div>
+                <div class="seat premium" data-seat="C6" data-price="50">C6</div>
+                <div class="seat premium" data-seat="C7" data-price="50">C7</div>
+                <div class="seat premium" data-seat="C8" data-price="50">C8</div>
+                <div class="seat premium reserved" data-seat="C9" data-price="50">C9</div>
+                <div class="seat premium reserved" data-seat="C10" data-price="50">C10</div>
+                <div class="seat premium" data-seat="C11" data-price="50">C11</div>
+                <div class="seat premium" data-seat="C12" data-price="50">C12</div>
+                <div class="seat premium" data-seat="C13" data-price="50">C13</div>
+                <div class="seat premium" data-seat="C14" data-price="50">C14</div>
+              </div>
+              <div class="row-label">C</div>
+            </div>
+            <div class="seat-row">
+              <div class="row-label">D</div>
+              <div class="seats">
+                <div class="seat premium" data-seat="D1" data-price="50">D1</div>
+                <div class="seat premium" data-seat="D2" data-price="50">D2</div>
+                <div class="seat premium reserved" data-seat="D3" data-price="50">D3</div>
+                <div class="seat premium reserved" data-seat="D4" data-price="50">D4</div>
+                <div class="seat premium" data-seat="D5" data-price="50">D5</div>
+                <div class="seat premium" data-seat="D6" data-price="50">D6</div>
+                <div class="seat premium" data-seat="D7" data-price="50">D7</div>
+                <div class="seat premium" data-seat="D8" data-price="50">D8</div>
+                <div class="seat premium" data-seat="D9" data-price="50">D9</div>
+                <div class="seat premium" data-seat="D10" data-price="50">D10</div>
+                <div class="seat premium" data-seat="D11" data-price="50">D11</div>
+                <div class="seat premium" data-seat="D12" data-price="50">D12</div>
+                <div class="seat premium" data-seat="D13" data-price="50">D13</div>
+                <div class="seat premium" data-seat="D14" data-price="50">D14</div>
+              </div>
+              <div class="row-label">D</div>
+            </div>
+            <div class="seat-row">
+              <div class="row-label">E</div>
+              <div class="seats">
+                <div class="seat premium" data-seat="E1" data-price="50">E1</div>
+                <div class="seat premium" data-seat="E2" data-price="50">E2</div>
+                <div class="seat premium" data-seat="E3" data-price="50">E3</div>
+                <div class="seat premium" data-seat="E4" data-price="50">E4</div>
+                <div class="seat premium" data-seat="E5" data-price="50">E5</div>
+                <div class="seat premium" data-seat="E6" data-price="50">E6</div>
+                <div class="seat premium" data-seat="E7" data-price="50">E7</div>
+                <div class="seat premium" data-seat="E8" data-price="50">E8</div>
+                <div class="seat premium" data-seat="E9" data-price="50">E9</div>
+                <div class="seat premium" data-seat="E10" data-price="50">E10</div>
+                <div class="seat premium" data-seat="E11" data-price="50">E11</div>
+                <div class="seat premium" data-seat="E12" data-price="50">E12</div>
+                <div class="seat premium" data-seat="E13" data-price="50">E13</div>
+                <div class="seat premium" data-seat="E14" data-price="50">E14</div>
+              </div>
+              <div class="row-label">E</div>
+            </div>
+          </div>
+
+          <!-- Sección General (Filas traseras) -->
+          <div class="seat-zone general-zone">
+            <div class="zone-label">GENERAL</div>
+            <div class="seat-row">
+              <div class="row-label">F</div>
+              <div class="seats">
+                <div class="seat general" data-seat="F1" data-price="35">F1</div>
+                <div class="seat general" data-seat="F2" data-price="35">F2</div>
+                <div class="seat general" data-seat="F3" data-price="35">F3</div>
+                <div class="seat general" data-seat="F4" data-price="35">F4</div>
+                <div class="seat general" data-seat="F5" data-price="35">F5</div>
+                <div class="seat general" data-seat="F6" data-price="35">F6</div>
+                <div class="seat general" data-seat="F7" data-price="35">F7</div>
+                <div class="seat general" data-seat="F8" data-price="35">F8</div>
+                <div class="seat general" data-seat="F9" data-price="35">F9</div>
+                <div class="seat general" data-seat="F10" data-price="35">F10</div>
+                <div class="seat general" data-seat="F11" data-price="35">F11</div>
+                <div class="seat general" data-seat="F12" data-price="35">F12</div>
+                <div class="seat general" data-seat="F13" data-price="35">F13</div>
+                <div class="seat general" data-seat="F14" data-price="35">F14</div>
+                <div class="seat general" data-seat="F15" data-price="35">F15</div>
+                <div class="seat general" data-seat="F16" data-price="35">F16</div>
+              </div>
+              <div class="row-label">F</div>
+            </div>
+            <div class="seat-row">
+              <div class="row-label">G</div>
+              <div class="seats">
+                <div class="seat general" data-seat="G1" data-price="35">G1</div>
+                <div class="seat general" data-seat="G2" data-price="35">G2</div>
+                <div class="seat general" data-seat="G3" data-price="35">G3</div>
+                <div class="seat general" data-seat="G4" data-price="35">G4</div>
+                <div class="seat general reserved" data-seat="G5" data-price="35">G5</div>
+                <div class="seat general reserved" data-seat="G6" data-price="35">G6</div>
+                <div class="seat general reserved" data-seat="G7" data-price="35">G7</div>
+                <div class="seat general reserved" data-seat="G8" data-price="35">G8</div>
+                <div class="seat general reserved" data-seat="G9" data-price="35">G9</div>
+                <div class="seat general reserved" data-seat="G10" data-price="35">G10</div>
+                <div class="seat general" data-seat="G11" data-price="35">G11</div>
+                <div class="seat general" data-seat="G12" data-price="35">G12</div>
+                <div class="seat general" data-seat="G13" data-price="35">G13</div>
+                <div class="seat general" data-seat="G14" data-price="35">G14</div>
+                <div class="seat general" data-seat="G15" data-price="35">G15</div>
+                <div class="seat general" data-seat="G16" data-price="35">G16</div>
+              </div>
+              <div class="row-label">G</div>
+            </div>
+            <div class="seat-row">
+              <div class="row-label">H</div>
+              <div class="seats">
+                <div class="seat general" data-seat="H1" data-price="35">H1</div>
+                <div class="seat general" data-seat="H2" data-price="35">H2</div>
+                <div class="seat general" data-seat="H3" data-price="35">H3</div>
+                <div class="seat general" data-seat="H4" data-price="35">H4</div>
+                <div class="seat general" data-seat="H5" data-price="35">H5</div>
+                <div class="seat general" data-seat="H6" data-price="35">H6</div>
+                <div class="seat general" data-seat="H7" data-price="35">H7</div>
+                <div class="seat general" data-seat="H8" data-price="35">H8</div>
+                <div class="seat general" data-seat="H9" data-price="35">H9</div>
+                <div class="seat general" data-seat="H10" data-price="35">H10</div>
+                <div class="seat general" data-seat="H11" data-price="35">H11</div>
+                <div class="seat general" data-seat="H12" data-price="35">H12</div>
+                <div class="seat general" data-seat="H13" data-price="35">H13</div>
+                <div class="seat general" data-seat="H14" data-price="35">H14</div>
+                <div class="seat general" data-seat="H15" data-price="35">H15</div>
+                <div class="seat general" data-seat="H16" data-price="35">H16</div>
+              </div>
+              <div class="row-label">H</div>
+            </div>
+            <div class="seat-row">
+              <div class="row-label">I</div>
+              <div class="seats">
+                <div class="seat general" data-seat="I1" data-price="35">I1</div>
+                <div class="seat general" data-seat="I2" data-price="35">I2</div>
+                <div class="seat general" data-seat="I3" data-price="35">I3</div>
+                <div class="seat general" data-seat="I4" data-price="35">I4</div>
+                <div class="seat general" data-seat="I5" data-price="35">I5</div>
+                <div class="seat general" data-seat="I6" data-price="35">I6</div>
+                <div class="seat general" data-seat="I7" data-price="35">I7</div>
+                <div class="seat general" data-seat="I8" data-price="35">I8</div>
+                <div class="seat general" data-seat="I9" data-price="35">I9</div>
+                <div class="seat general" data-seat="I10" data-price="35">I10</div>
+                <div class="seat general" data-seat="I11" data-price="35">I11</div>
+                <div class="seat general" data-seat="I12" data-price="35">I12</div>
+                <div class="seat general" data-seat="I13" data-price="35">I13</div>
+                <div class="seat general" data-seat="I14" data-price="35">I14</div>
+                <div class="seat general" data-seat="I15" data-price="35">I15</div>
+                <div class="seat general" data-seat="I16" data-price="35">I16</div>
+              </div>
+              <div class="row-label">I</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="seating-zoom-controls">
+          <button id="zoomIn" class="zoom-btn">+</button>
+          <button id="zoomOut" class="zoom-btn">-</button>
+          <button id="resetZoom" class="zoom-btn">Reset</button>
+        </div>
+      </div>
+
+      <!-- Resumen de la selección -->
+      <div class="selection-summary">
+        <h2>Resumen de tu selección</h2>
+
+        <div class="event-summary">
+          <div class="event-image" style="background-image: url('/api/placeholder/200/120');"></div>
+          <div class="event-details">
+            <h3>Teatro: "La Casa de Bernarda Alba"</h3>
+            <p>30 Mayo, 2025 • 19:30 hrs</p>
+            <p>Teatro Nacional</p>
+          </div>
+        </div>
+
+        <div class="tickets-summary">
+          <h3>Boletos seleccionados</h3>
+          <div class="ticket-type">
+            <span>Entrada General (2)</span>
+            <span>$70.00</span>
+          </div>
+        </div>
+
+        <div class="seats-summary">
+          <h3>Asientos seleccionados</h3>
+          <div class="selected-seats" id="selectedSeatsList">
+            <div class="empty-selection">No has seleccionado asientos aún</div>
+          </div>
+        </div>
+
+        <div class="price-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotalPrice">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Cargo por servicio</span>
+            <span>$10.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="totalPrice">$10.00</span>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-outline btn-back">Volver</button>
+          <button class="btn" id="continueBtn" disabled>Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <!-- Columna 1 -->
+      <div class="footer-column">
+        <h3>EspectáculosVIP</h3>
+        <p>La mejor plataforma para descubrir y disfrutar de los mejores eventos y espectáculos.</p>
+        <div class="social-links">
+          <a href="#"><span>FB</span></a>
+          <a href="#"><span>IG</span></a>
+          <a href="#"><span>TW</span></a>
+          <a href="#"><span>YT</span></a>
+        </div>
+      </div>
+      <!-- Columna 2 -->
+      <div class="footer-column">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="categorias.html">Categorías</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <!-- Columna 3 -->
+      <div class="footer-column">
+        <h3>Categorías</h3>
+        <ul>
+          <li><a href="categorias.html?cat=musica">Música</a></li>
+          <li><a href="categorias.html?cat=teatro">Teatro</a></li>
+          <li><a href="categorias.html?cat=cine">Cine</a></li>
+          <li><a href="categorias.html?cat=danza">Danza</a></li>
+          <li><a href="categorias.html?cat=comedia">Comedia</a></li>
+        </ul>
+      </div>
+      <!-- Columna 4 -->
+      <div class="footer-column">
+        <h3>Contacto</h3>
+        <ul>
+          <li>info@espectaculosvip.com</li>
+          <li>+123 456 7890</li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 EspectáculosVIP. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/asientos.js"></script>
+</body>
+</html>

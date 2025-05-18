@@ -1,3 +1,4 @@
+<!-- Página de Administrador - Dashboard -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='../css/admin.css'>
-  <title>EspectáculosVIP - Gestión de Eventos</title>
+  <title>EspectáculosVIP - Panel de Administración</title>
 </head>
 <body class="admin-body">
 <!-- Sidebar de navegación -->
@@ -17,8 +18,8 @@
 
   <nav class="sidebar-nav">
     <ul>
-      <li><a href="admin-dashboard.html"><span class="icon">📊</span> Dashboard</a></li>
-      <li class="active"><a href="admin-eventos.html"><span class="icon">🎭</span> Gestionar Eventos</a></li>
+      <li class="active"><a href="admin.html"><span class="icon">📊</span> Dashboard</a></li>
+      <li><a href="admin-eventos.html"><span class="icon">🎭</span> Gestionar Eventos</a></li>
       <li><a href="admin-usuarios.html"><span class="icon">👥</span> Usuarios</a></li>
       <li><a href="admin-ventas.html"><span class="icon">💰</span> Ventas</a></li>
       <li><a href="admin-reportes.html"><span class="icon">📈</span> Reportes</a></li>
@@ -42,7 +43,7 @@
 <main class="admin-main">
   <header class="admin-header">
     <div class="header-search">
-      <input type="search" placeholder="Buscar eventos...">
+      <input type="search" placeholder="Buscar...">
       <button type="submit">🔍</button>
     </div>
 
@@ -54,529 +55,226 @@
   </header>
 
   <div class="admin-content">
-    <div class="page-header">
-      <h1>Gestión de Eventos</h1>
-      <button id="btnCreateEvent" class="btn btn-primary">
-        <span class="icon">➕</span> Crear Nuevo Evento
-      </button>
-    </div>
+    <h1>Dashboard</h1>
 
-    <!-- Filtros y búsqueda -->
-    <div class="filters-bar">
-      <div class="filter-group">
-        <label>Categoría:</label>
-        <select id="filterCategory">
-          <option value="">Todas</option>
-          <option value="musica">Música</option>
-          <option value="teatro">Teatro</option>
-          <option value="cine">Cine</option>
-          <option value="danza">Danza</option>
-          <option value="circo">Circo</option>
-          <option value="comedia">Comedia</option>
-        </select>
+    <div class="stats-cards">
+      <div class="stat-card">
+        <div class="stat-icon">🎟️</div>
+        <div class="stat-data">
+          <h3>25,487</h3>
+          <p>Boletos Vendidos</p>
+        </div>
+        <div class="stat-trend up">+12.5%</div>
       </div>
 
-      <div class="filter-group">
-        <label>Estado:</label>
-        <select id="filterStatus">
-          <option value="">Todos</option>
-          <option value="activo">Activo</option>
-          <option value="finalizado">Finalizado</option>
-          <option value="cancelado">Cancelado</option>
-          <option value="proximamente">Próximamente</option>
-        </select>
+      <div class="stat-card">
+        <div class="stat-icon">💵</div>
+        <div class="stat-data">
+          <h3>$125,480</h3>
+          <p>Ingresos Totales</p>
+        </div>
+        <div class="stat-trend up">+8.3%</div>
       </div>
 
-      <div class="filter-group">
-        <label>Ordenar por:</label>
-        <select id="sortEvents">
-          <option value="date-asc">Fecha (próximos primero)</option>
-          <option value="date-desc">Fecha (antiguos primero)</option>
-          <option value="name-asc">Nombre (A-Z)</option>
-          <option value="name-desc">Nombre (Z-A)</option>
-          <option value="sales-desc">Más vendidos</option>
-          <option value="capacity-desc">Mayor capacidad</option>
-        </select>
+      <div class="stat-card">
+        <div class="stat-icon">📆</div>
+        <div class="stat-data">
+          <h3>48</h3>
+          <p>Eventos Activos</p>
+        </div>
+        <div class="stat-trend up">+5.2%</div>
       </div>
 
-      <button class="btn btn-outline btn-sm">
-        <span class="icon">🔄</span> Aplicar filtros
-      </button>
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-data">
+          <h3>12,456</h3>
+          <p>Usuarios Registrados</p>
+        </div>
+        <div class="stat-trend up">+15.7%</div>
+      </div>
     </div>
 
-    <!-- Tabla de eventos -->
-    <div class="table-container">
-      <table class="admin-table events-table">
-        <thead>
-        <tr>
-          <th style="width: 60px">ID</th>
-          <th style="width: 80px">Imagen</th>
-          <th>Nombre del Evento</th>
-          <th>Categoría</th>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Lugar</th>
-          <th>Capacidad</th>
-          <th>Disponible</th>
-          <th>Estado</th>
-          <th style="width: 120px">Acciones</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Evento 1 -->
-        <tr>
-          <td>001</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Festival de Música Urbana</td>
-          <td>Música</td>
-          <td>25 Mayo, 2025</td>
-          <td>20:00</td>
-          <td>Parque Central</td>
-          <td>5000</td>
-          <td>65%</td>
-          <td><span class="status-badge active">Activo</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="001" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="001" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="001" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
+    <div class="admin-charts">
+      <div class="chart-container">
+        <div class="chart-header">
+          <h3>Ventas por Categoría</h3>
+          <div class="chart-actions">
+            <select>
+              <option>Últimos 7 días</option>
+              <option>Últimos 30 días</option>
+              <option>Este año</option>
+            </select>
+          </div>
+        </div>
+        <div class="chart-content">
+          <!-- Aquí iría el gráfico real -->
+          <div class="placeholder-chart">Gráfico de Ventas por Categoría</div>
+        </div>
+      </div>
 
-        <!-- Evento 2 -->
-        <tr>
-          <td>002</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Teatro: "La Casa de Bernarda Alba"</td>
-          <td>Teatro</td>
-          <td>30 Mayo, 2025</td>
-          <td>19:30</td>
-          <td>Teatro Nacional</td>
-          <td>500</td>
-          <td>15%</td>
-          <td><span class="status-badge active">Activo</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="002" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="002" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="002" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-
-        <!-- Evento 3 -->
-        <tr>
-          <td>003</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Concierto Sinfónico</td>
-          <td>Música</td>
-          <td>5 Mayo, 2025</td>
-          <td>18:00</td>
-          <td>Auditorio Municipal</td>
-          <td>800</td>
-          <td>82%</td>
-          <td><span class="status-badge active">Activo</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="003" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="003" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="003" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-
-        <!-- Evento 4 -->
-        <tr>
-          <td>004</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Festival de Jazz</td>
-          <td>Música</td>
-          <td>15 Mayo, 2025</td>
-          <td>16:00</td>
-          <td>Parque de la Ciudad</td>
-          <td>3000</td>
-          <td>45%</td>
-          <td><span class="status-badge active">Activo</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="004" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="004" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="004" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-
-        <!-- Evento 5 -->
-        <tr>
-          <td>005</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Ballet Clásico: "El Lago de los Cisnes"</td>
-          <td>Danza</td>
-          <td>22 Mayo, 2025</td>
-          <td>19:00</td>
-          <td>Teatro de la Ópera</td>
-          <td>600</td>
-          <td>35%</td>
-          <td><span class="status-badge active">Activo</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="005" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="005" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="005" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-
-        <!-- Evento 6 -->
-        <tr>
-          <td>006</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Stand Up Comedy Night</td>
-          <td>Comedia</td>
-          <td>28 Mayo, 2025</td>
-          <td>20:30</td>
-          <td>Teatro Municipal</td>
-          <td>350</td>
-          <td>60%</td>
-          <td><span class="status-badge active">Activo</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="006" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="006" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="006" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-
-        <!-- Evento pasado -->
-        <tr class="past-event">
-          <td>007</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Concierto Rock en Vivo</td>
-          <td>Música</td>
-          <td>10 Abril, 2025</td>
-          <td>21:00</td>
-          <td>Estadio Municipal</td>
-          <td>8000</td>
-          <td>100%</td>
-          <td><span class="status-badge completed">Finalizado</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="007" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="007" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="007" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-
-        <!-- Evento cancelado -->
-        <tr class="cancelled-event">
-          <td>008</td>
-          <td>
-            <div class="event-thumb" style="background-image: url('/api/placeholder/60/40');"></div>
-          </td>
-          <td>Festival de Comida Internacional</td>
-          <td>Gastronomía</td>
-          <td>2 Junio, 2025</td>
-          <td>12:00</td>
-          <td>Plaza Central</td>
-          <td>2000</td>
-          <td>0%</td>
-          <td><span class="status-badge cancelled">Cancelado</span></td>
-          <td class="actions-cell">
-            <button class="action-btn edit-btn" data-id="008" title="Editar">✏️</button>
-            <button class="action-btn view-btn" data-id="008" title="Ver detalles">👁️</button>
-            <button class="action-btn delete-btn" data-id="008" title="Eliminar">🗑️</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="chart-container">
+        <div class="chart-header">
+          <h3>Ventas por Mes</h3>
+          <div class="chart-actions">
+            <select>
+              <option>2025</option>
+              <option>2024</option>
+            </select>
+          </div>
+        </div>
+        <div class="chart-content">
+          <!-- Aquí iría el gráfico real -->
+          <div class="placeholder-chart">Gráfico de Ventas por Mes</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Paginación -->
-    <div class="pagination">
-      <button class="page-btn prev">«</button>
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <span class="page-ellipsis">...</span>
-      <button class="page-btn">10</button>
-      <button class="page-btn next">»</button>
+    <div class="recent-activity">
+      <div class="section-header">
+        <h3>Actividad Reciente</h3>
+        <a href="admin-actividad.html" class="view-all">Ver todo</a>
+      </div>
+
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-icon sale">💰</div>
+          <div class="activity-content">
+            <p><strong>Venta</strong> - Se han vendido 3 boletos para <a href="#">Festival de Música Urbana</a></p>
+            <span class="activity-time">Hace 15 minutos</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon new-event">🎭</div>
+          <div class="activity-content">
+            <p><strong>Nuevo Evento</strong> - Se ha creado el evento <a href="#">Concierto Sinfónico</a></p>
+            <span class="activity-time">Hace 2 horas</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon user">👤</div>
+          <div class="activity-content">
+            <p><strong>Nuevo Usuario</strong> - <a href="#">María García</a> se ha registrado</p>
+            <span class="activity-time">Hace 3 horas</span>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon update">🔄</div>
+          <div class="activity-content">
+            <p><strong>Actualización</strong> - Se ha actualizado la información del evento <a href="#">La Casa de Bernarda Alba</a></p>
+            <span class="activity-time">Hace 5 horas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-row">
+      <div class="admin-col">
+        <div class="top-events">
+          <div class="section-header">
+            <h3>Eventos Más Vendidos</h3>
+            <a href="admin-eventos.html" class="view-all">Ver todo</a>
+          </div>
+
+          <table class="admin-table">
+            <thead>
+            <tr>
+              <th>Evento</th>
+              <th>Categoría</th>
+              <th>Ventas</th>
+              <th>Disponibilidad</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Festival de Música Urbana</td>
+              <td>Música</td>
+              <td>1,245</td>
+              <td><span class="status medium">65%</span></td>
+            </tr>
+            <tr>
+              <td>La Casa de Bernarda Alba</td>
+              <td>Teatro</td>
+              <td>892</td>
+              <td><span class="status low">15%</span></td>
+            </tr>
+            <tr>
+              <td>Concierto Sinfónico</td>
+              <td>Música</td>
+              <td>756</td>
+              <td><span class="status high">82%</span></td>
+            </tr>
+            <tr>
+              <td>Festival de Jazz</td>
+              <td>Música</td>
+              <td>621</td>
+              <td><span class="status medium">45%</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="admin-col">
+        <div class="upcoming-events">
+          <div class="section-header">
+            <h3>Próximos Eventos</h3>
+            <a href="admin-eventos.html" class="view-all">Ver todo</a>
+          </div>
+
+          <div class="upcoming-list">
+            <div class="upcoming-item">
+              <div class="upcoming-date">
+                <span class="day">25</span>
+                <span class="month">MAY</span>
+              </div>
+              <div class="upcoming-details">
+                <h4>Concierto de Rock Alternativo</h4>
+                <p>Estadio Metropolitano, 21:00</p>
+                <div class="upcoming-meta">
+                  <span>Ventas: 450</span>
+                  <span>Capacidad: 75%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="upcoming-item">
+              <div class="upcoming-date">
+                <span class="day">28</span>
+                <span class="month">MAY</span>
+              </div>
+              <div class="upcoming-details">
+                <h4>Stand Up Comedy Night</h4>
+                <p>Teatro Municipal, 20:30</p>
+                <div class="upcoming-meta">
+                  <span>Ventas: 215</span>
+                  <span>Capacidad: 45%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="upcoming-item">
+              <div class="upcoming-date">
+                <span class="day">2</span>
+                <span class="month">JUN</span>
+              </div>
+              <div class="upcoming-details">
+                <h4>Festival de Cine Independiente</h4>
+                <p>Centro Cultural, 17:00</p>
+                <div class="upcoming-meta">
+                  <span>Ventas: 320</span>
+                  <span>Capacidad: 60%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
-
-<!-- Modal de Crear/Editar Evento -->
-<div id="eventModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 id="modalTitle">Crear Nuevo Evento</h2>
-      <button class="close-modal">×</button>
-    </div>
-
-    <div class="modal-body">
-      <form id="eventForm">
-        <input type="hidden" id="eventId" value="">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="eventName">Nombre del Evento *</label>
-            <input type="text" id="eventName" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="eventCategory">Categoría *</label>
-            <select id="eventCategory" required>
-              <option value="">Seleccionar categoría</option>
-              <option value="musica">Música</option>
-              <option value="teatro">Teatro</option>
-              <option value="cine">Cine</option>
-              <option value="danza">Danza</option>
-              <option value="circo">Circo</option>
-              <option value="comedia">Comedia</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="eventStatus">Estado *</label>
-            <select id="eventStatus" required>
-              <option value="activo">Activo</option>
-              <option value="proximamente">Próximamente</option>
-              <option value="finalizado">Finalizado</option>
-              <option value="cancelado">Cancelado</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="eventDate">Fecha *</label>
-            <input type="date" id="eventDate" required>
-          </div>
-
-          <div class="form-group">
-            <label for="eventTime">Hora *</label>
-            <input type="time" id="eventTime" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="eventVenue">Lugar *</label>
-            <input type="text" id="eventVenue" required>
-          </div>
-
-          <div class="form-group">
-            <label for="eventCapacity">Capacidad *</label>
-            <input type="number" id="eventCapacity" min="1" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="eventPrice">Precio Base *</label>
-            <div class="price-input">
-              <span class="price-symbol">$</span>
-              <input type="number" id="eventPrice" min="0" step="0.01" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="eventDuration">Duración (minutos)</label>
-            <input type="number" id="eventDuration" min="1">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="eventDescription">Descripción *</label>
-          <textarea id="eventDescription" rows="4" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="eventImage">Imagen</label>
-          <div class="image-upload">
-            <div class="image-preview" id="imagePreview">
-              <span class="upload-icon">📷</span>
-              <span class="upload-text">Subir imagen</span>
-            </div>
-            <input type="file" id="eventImage" accept="image/*">
-          </div>
-        </div>
-
-        <hr>
-
-        <h3 class="form-section-title">Opciones adicionales</h3>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="eventTags">Etiquetas (separadas por comas)</label>
-            <input type="text" id="eventTags" placeholder="ej: música, festival, verano">
-          </div>
-        </div>
-
-        <div class="form-options">
-          <div class="checkbox-group">
-            <input type="checkbox" id="eventFeatured">
-            <label for="eventFeatured">Marcar como destacado</label>
-          </div>
-
-          <div class="checkbox-group">
-            <input type="checkbox" id="eventSoldOut">
-            <label for="eventSoldOut">Marcar como agotado</label>
-          </div>
-        </div>
-
-        <div class="form-buttons">
-          <button type="button" class="btn btn-outline" id="cancelEventBtn">Cancelar</button>
-          <button type="submit" class="btn btn-primary" id="saveEventBtn">Guardar Evento</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- Modal de Confirmación de Eliminación -->
-<div id="deleteModal" class="modal">
-  <div class="modal-content modal-sm">
-    <div class="modal-header">
-      <h2>Confirmar Eliminación</h2>
-      <button class="close-modal">×</button>
-    </div>
-
-    <div class="modal-body">
-      <p>¿Estás seguro de que deseas eliminar este evento?</p>
-      <p class="delete-warning">Esta acción no se puede deshacer.</p>
-
-      <div class="form-buttons">
-        <button type="button" class="btn btn-outline" id="cancelDeleteBtn">Cancelar</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal de Detalles del Evento -->
-<div id="detailsModal" class="modal">
-  <div class="modal-content modal-lg">
-    <div class="modal-header">
-      <h2 id="detailsTitle">Detalles del Evento</h2>
-      <button class="close-modal">×</button>
-    </div>
-
-    <div class="modal-body">
-      <div class="event-details-container">
-        <div class="event-details-img">
-          <img src="/api/placeholder/400/250" alt="Imagen del evento" id="detailsImage">
-        </div>
-
-        <div class="event-details-info">
-          <h3 id="detailsName">Nombre del Evento</h3>
-
-          <div class="details-meta">
-            <div class="detail-item">
-              <span class="detail-icon">📅</span>
-              <span class="detail-label">Fecha:</span>
-              <span class="detail-value" id="detailsDate">25 Mayo, 2025</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">🕗</span>
-              <span class="detail-label">Hora:</span>
-              <span class="detail-value" id="detailsTime">20:00</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">📍</span>
-              <span class="detail-label">Lugar:</span>
-              <span class="detail-value" id="detailsVenue">Parque Central</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">🎭</span>
-              <span class="detail-label">Categoría:</span>
-              <span class="detail-value" id="detailsCategory">Música</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">👥</span>
-              <span class="detail-label">Capacidad:</span>
-              <span class="detail-value" id="detailsCapacity">5000 personas</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">⏱️</span>
-              <span class="detail-label">Duración:</span>
-              <span class="detail-value" id="detailsDuration">120 minutos</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">💰</span>
-              <span class="detail-label">Precio base:</span>
-              <span class="detail-value" id="detailsPrice">$45.00</span>
-            </div>
-
-            <div class="detail-item">
-              <span class="detail-icon">🎟️</span>
-              <span class="detail-label">Disponibilidad:</span>
-              <span class="detail-value" id="detailsAvailability">65% (3250 de 5000)</span>
-            </div>
-          </div>
-
-          <div class="event-description">
-            <h4>Descripción</h4>
-            <p id="detailsDescription">La mejor selección de artistas urbanos en un solo escenario.</p>
-          </div>
-
-          <div class="event-tags">
-            <span class="event-tag" id="detailsTags">música</span>
-            <span class="event-tag">festival</span>
-            <span class="event-tag">urbano</span>
-          </div>
-
-          <div class="details-actions">
-            <button class="btn btn-outline btn-edit-details">
-              <span class="icon">✏️</span> Editar evento
-            </button>
-            <button class="btn btn-primary">
-              <span class="icon">📊</span> Ver estadísticas
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="event-tickets-section">
-        <h3>Boletos vendidos</h3>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 65%;"></div>
-          <span class="progress-text">1750 boletos vendidos (65%)</span>
-        </div>
-
-        <div class="tickets-info">
-          <div class="ticket-info-item">
-            <span class="ticket-info-label">Venta total:</span>
-            <span class="ticket-info-value">$78,750.00</span>
-          </div>
-          <div class="ticket-info-item">
-            <span class="ticket-info-label">Precio promedio:</span>
-            <span class="ticket-info-value">$45.00</span>
-          </div>
-          <div class="ticket-info-item">
-            <span class="ticket-info-label">Primera venta:</span>
-            <span class="ticket-info-value">10 Abril, 2025</span>
-          </div>
-          <div class="ticket-info-item">
-            <span class="ticket-info-label">Última venta:</span>
-            <span class="ticket-info-value">15 Mayo, 2025</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="js/admin-eventos.js"></script>
 </body>
 </html>
